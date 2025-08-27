@@ -1,22 +1,21 @@
 ---
 /**
- * Fluency Labs — Lesson Inquiry Form
- * Netlify Forms compatible (no server needed).
- * - Change "action" if you prefer a custom success page.
- * - To use Formspree instead, see the alt snippet below.
+ * Fluency Labs — Lesson Inquiry Form (Netlify Forms)
+ * Redirects to /company/thanks after successful submit.
  */
 ---
 
 <form
   name="lesson-inquiry"
   method="POST"
-  action="/company/contact/success"
+  action="/company/thanks"
   data-netlify="true"
   netlify-honeypot="company"
   class="fl-form"
 >
-  <!-- Netlify needs this hidden input -->
+  <!-- Netlify requires this hidden input -->
   <input type="hidden" name="form-name" value="lesson-inquiry" />
+
   <!-- Honeypot field to catch bots -->
   <p class="hidden">
     <label>Company <input name="company" /></label>
@@ -34,45 +33,15 @@
     </label>
   </div>
 
-  <!-- <label>
-    Phone (optional)
-    <input type="tel" name="phone" autocomplete="tel" />
-  </label> -->
-
-  <!-- Placement / goals -->
-  <!-- <div class="grid">
-    <label>
-      Current level*
-      <select name="level" required>
-        <option value="" disabled selected>Select your level</option>
-        <option>A1 — Beginner</option>
-        <option>A2 — Elementary</option>
-        <option>B1 — Intermediate</option>
-        <option>B2 — Upper-intermediate</option>
-        <option>C1 — Advanced</option>
-        <option>C2 — Proficient</option>
-        <option>Not sure</option>
-      </select>
-    </label> -->
-
-    <label>
-      Lesson type*
-      <select name="lessonType" required>
-        <option value="" disabled selected>Select lesson type</option>
-        <option>1-on-1</option>
-        <option>Small group</option>
-      </select>
-    </label>
-  </div>
-
-  <!-- <fieldset class="checkboxes">
-    <legend>Goals (check all that apply)</legend>
-    <label><input type="checkbox" name="goals" value="Conversation" /> Conversation</label>
-    <label><input type="checkbox" name="goals" value="Pronunciation" /> Pronunciation</label>
-    <label><input type="checkbox" name="goals" value="Grammar" /> Grammar</label>
-    <label><input type="checkbox" name="goals" value="Exam prep (DELF/DALF/TEF)" /> Exam prep (DELF/DALF/TEF)</label>
-    <label><input type="checkbox" name="goals" value="Business French" /> Business French</label>
-  </fieldset> -->
+  <!-- Lesson basics -->
+  <label>
+    Lesson type*
+    <select name="lessonType" required>
+      <option value="" disabled selected>Select lesson type</option>
+      <option>1-on-1</option>
+      <option>Small group</option>
+    </select>
+  </label>
 
   <label>
     Availability & time zone*
@@ -92,25 +61,6 @@
       rows="4"
     ></textarea>
   </label>
-
-  <!-- <div class="grid">
-    <label>
-      How did you hear about us?
-      <select name="source">
-        <option value="" selected>—</option>
-        <option>Google</option>
-        <option>Instagram</option>
-        <option>Referral</option>
-        <option>University</option>
-        <option>Other</option>
-      </select>
-    </label> -->
-
-    <!-- <label class="agree">
-      <input type="checkbox" name="consent" required />
-      I agree to be contacted about lessons and accept the privacy policy.*
-    </label>
-  </div> -->
 
   <button type="submit" class="btn">Request a trial lesson</button>
   <p class="smallprint">* Required</p>
@@ -133,10 +83,6 @@
     background: var(--theme-surface-0, #fff);
   }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .checkboxes { border: none; padding: 0; margin: 0.75rem 0; }
-  .checkboxes legend { font-weight: 600; margin-bottom: 0.5rem; }
-  .checkboxes label { display: inline-flex; align-items: center; gap: 0.5rem; margin-right: 1rem; margin-bottom: 0.5rem; }
-  .agree { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.4rem; }
   .btn {
     margin-top: 0.75rem;
     padding: 0.85rem 1.1rem;
@@ -147,14 +93,5 @@
     cursor: pointer;
   }
   .smallprint { margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem; }
-
   @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
 </style>
-
-<!--
-ALT: Formspree version (replace the <form> tag with this one)
-<form name="lesson-inquiry" method="POST" action="https://formspree.io/f/YOUR_ID" class="fl-form">
-  (remove data-netlify, hidden input, and honeypot)
-  ...
-</form>
--->

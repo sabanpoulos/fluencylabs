@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Page.astro';
+import { Container } from '@components/odyssey-theme';
+const seo = { title: 'Thanks — We got your message', description: 'We’ll be in touch shortly.' };
+---
+<Layout seo={seo}>
+  <Container>
+    <section style="margin: var(--section-margin) auto; text-align:center;">
+      <h1>Merci !</h1>
+      <p>We’ve received your request for a lesson. I’ll get back to you within 24 hours.</p>
+      <p><a href="/">Return to homepage</a></p>
+    </section>
+  </Container>
+</Layout>
