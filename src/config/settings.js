@@ -1,8 +1,8 @@
 export default {
-	title: `Odyssey Astro Theme | A Marketing Website Theme for Startups and Businesses`,
-	description: `A simple, clean, and modern theme for a startup or businesses' marketing website.`,
-	url: `https://odyssey-theme.sapling.supply`, // No trailing slash!
-	name: `Odyssey`, // The short name of the business or brand name. Used for things like the copyright in the footer.
-	enableThemeSwitcher: true,
-	showPlug: true, // Disable this if you want to remove the plug from the footer. (╯°□°)╯︵ ┻━┻
+  title: `Fluency Labs — Cours de français en ligne | French Lessons Online`,
+  description: `Bilingual (FR/EN) 1-on-1 and small-group French lessons focused on conversation, pronunciation, grammar, and exam prep. Personalized curriculum for students and professionals.`,
+  url: `https://fluencylabs.ca`, // No trailing slash! Use your real domain.
+  name: `Fluency Labs`, // Used for footer copyright, etc.
+  enableThemeSwitcher: false, // Keep branding consistent; set true if you want the toggle.
+  showPlug: false, // Hide the template plug in the footer.
 };

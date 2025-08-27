@@ -1,47 +1,100 @@
 ---
-import { TextSection } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import HeroSection from '../../components/sections/heros/HeroSection.astro';
+import { Container, Button } from '@components/odyssey-theme';
+import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
 
 const seo = {
-	title: 'About | Astro Odyssey Theme',
-	description: 'About Page',
+  title: 'About — Fluency Labs',
+  description:
+    'Fluency Labs is a French tutoring studio led by Saban Contandriopoulos. Conversation-first coaching for real-world confidence, online or in Victoria, BC.',
 };
 ---
 
-<Layout {seo}>
-	<HeroSection>
-		<div slot="text-container">
-			<h1>About Odyssey</h1>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, nisi
-				recusandae? Quidem dignissimos nobis, dicta unde, aperiam voluptate
-				autem iste reprehenderit, aliquam ducimus illo ea ipsum qui animi sequi.
-				Numquam.
-			</p>
-		</div>
-    <picture slot="image-container">
-      <img
-        src="/assets/images/home/classic-hero.jpg"
-        alt="Astro Odyssee"
-        id="home-hero-image"
-      />
-    </picture>
-	</HeroSection>
-  <TextSection narrow>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo asperiores alias illo accusamus voluptatem ea cum nemo odit! Consequatur quidem quo iusto quam ea neque nisi dolorum quod, recusandae id!
-      Repudiandae, fugit labore voluptatum beatae modi omnis adipisci corrupti aut aliquid cumque inventore iure possimus doloremque iste incidunt nulla architecto. Nobis iusto sunt voluptatem necessitatibus laborum, earum doloremque fugit rerum!
-    </p>
-    <p>Fugit asperiores harum consectetur sapiente deleniti. Optio enim tenetur impedit reprehenderit labore, illo eius in, consequatur odio dolore iste assumenda explicabo, nisi similique qui obcaecati possimus delectus reiciendis quod modi.</p>
-    
-    <p>
-      Vel tempore rem omnis esse officiis optio, explicabo, quod deleniti adipisci ullam cum necessitatibus eius minus vero saepe ad, dicta rerum praesentium deserunt illo itaque odio corrupti voluptatum quibusdam. Pariatur.
-      Porro neque tempore, illum eligendi deleniti iure dolorem amet magnam at dolores veniam nemo cumque aut alias repellat est dicta sit repellendus facilis officia? Minima dolorum quo ducimus adipisci perferendis.
-    </p>
-    <p>
-      Quis distinctio tempora sequi sit repudiandae cumque nostrum deserunt, voluptatibus rem eum fuga modi beatae cum ullam delectus dicta atque eius nam quos corporis. Animi praesentium quae nobis. Odit, mollitia. Voluptatum, hic explicabo. Ex accusamus ipsa ea dolor commodi quas esse ipsum alias et adipisci error necessitatibus atque facere rerum ratione consequatur aspernatur repudiandae minima consectetur fuga, doloremque dolorum pariatur.
-      Ipsam error eaque velit possimus porro eum quod illo iusto officia magnam magni, beatae nisi voluptate praesentium? Saepe distinctio adipisci quas hic quae facilis? Sequi eum hic aperiam impedit minus?
-    </p>
-  </TextSection>
+<Layout seo={seo}>
+  <Container>
+    <!-- HERO -->
+    <TextAndImageHero reversed>
+      <div slot="text-container">
+        <h1>About Fluency Labs</h1>
+        <p class="lead">
+          Fluency Labs is a French tutoring studio led by <strong>Saban Contandriopoulos</strong>,
+          a bilingual (FR/EN) instructor specializing in conversation-first coaching. We help learners
+          speak naturally—with clear pronunciation, confident delivery, and cultural ease.
+        </p>
+      </div>
+
+      <div slot="btns-container">
+        <!-- <Button href="/company/contact">Get Started</Button> -->
+      </div>
+
+      <picture slot="image-container">
+        <!-- Swap this for your own image, e.g. /assets/images/about-portrait.jpg -->
+        <!-- <img
+          src="/assets/images/landing-1/landing-hero-1.jpg"
+          alt="Saban Contandriopoulos, founder and lead instructor at Fluency Labs"
+          loading="lazy"
+        /> -->
+        <img src="/assets/images/about-portrait.jpg" alt="Saban Contandriopoulos, founder and lead instructor at Fluency Labs" loading="lazy" />
+
+      </picture>
+    </TextAndImageHero>
+
+    <!-- WHO WE ARE -->
+    <!-- <section class="card"> -->
+      <h2>Who We Are</h2>
+      <p>
+        Founded by Saban, Fluency Labs pairs a rigorous, structured approach with friendly,
+        real-world practice. With experience across Canada and France, we make progress measurable and sessions enjoyable.
+      </p>
+    <!-- </section> -->
+
+    <!-- HOW WE TEACH -->
+    <section class="card">
+      <h2>How We Teach</h2>
+      <ul class="checks">
+        <li><strong>Conversation-first</strong> sessions with tailored prompts & role-plays</li>
+        <li><strong>Pronunciation & listening</strong> drills to build speed and clarity</li>
+        <li><strong>Micro-grammar</strong> feedback you can use immediately</li>
+        <li><strong>Cultural cues</strong> & etiquette for natural, confident French</li>
+      </ul>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <!-- <section class="card"> -->
+      <h2>Who It’s For</h2>
+      <p>
+        Adults and students from beginner (A1) to advanced (C2). Lessons available online, 1-on-1 or small group.
+      </p>
+    <!-- </section> -->
+
+    <!-- CTA -->
+    <section class="closing">
+      <!-- <Button href="/company/contact">Get Started</Button> -->
+    </section>
+  </Container>
 </Layout>
+
+<style>
+  .lead {
+    max-width: 780px;
+    line-height: 1.6;
+    margin-top: .5rem;
+  }
+
+  .card {
+    background: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--theme-shape-radius);
+    margin: calc(var(--section-margin) * 0.7) auto;
+  }
+
+  .checks { list-style: none; padding: 0; margin: .5rem 0 0; }
+  .checks li { position: relative; padding-left: 1.6rem; margin: .4rem 0; }
+  .checks li::before {
+    content: '✓';
+    position: absolute; left: 0; top: 0; transform: translateY(2px);
+  }
+
+  .closing { text-align: center; margin: var(--section-margin) auto; }
+</style>

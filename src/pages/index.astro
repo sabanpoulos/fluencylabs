@@ -1,92 +1,129 @@
 ---
-import { Container, FeatureCard } from '@components/odyssey-theme';
-
 import Layout from '../layouts/Page.astro';
-import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
+import { Container, Button } from '@components/odyssey-theme';
+import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astro';
+
+const seo = {
+  title: 'Fluency Labs — Master French Through Conversation',
+  description:
+    'Personalized, conversation-first French lessons to build real-world speaking confidence. Online or in Victoria, BC.',
+};
 ---
 
-<Layout>
-	<HomeHeroSection />
-	<Container>
-		<section class="feature-card__section">
-			<h2>Landing Pages</h2>
-			<p>
-				Use one of our landing pages to jumpstart your website or
-				ad campaign.
-			</p>
-			<div class="feature-card__grid">
-				<FeatureCard href="/landing-pages/landing-1" title="Landing Page 1" imgSrc="/assets/images/home/screenshots/landing-1">
-				</FeatureCard>
-				<FeatureCard href="/landing-pages/landing-2" title="Landing Page 2" imgSrc="/assets/images/home/screenshots/landing-2">
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
+<Layout seo={seo}>
+  <Container>
+    <!-- HERO with image -->
+    <TextAndImageHero>
+      <div slot="text-container">
+        <h1>Master French Through Conversation</h1>
+        <p class="lead">
+           At <strong>Fluency Labs</strong>, we deliver immersive, conversation-first French coaching.
+			 Move beyond textbooks to natural, spontaneous speech—think in French,
+			respond faster, and sound like yourself.
+        </p>
+      </div>
 
-	<Container>
-		<section class="feature-card__section">
-			<h2>Company Pages</h2>
-			<p>
-				Use one of our prebuilt company pages for your about page, contact page,
-				legal pages, blog posts, etc.
-			</p>
-			<div class="feature-card__grid">
-				<FeatureCard href="/company/about" title="About Page" imgSrc="/assets/images/home/screenshots/about">
-				</FeatureCard>
-				<FeatureCard href="/company/contact" title="Contact Page" imgSrc="/assets/images/home/screenshots/contact">
-				</FeatureCard>
-				<FeatureCard href="/blog/" title="Blog Page" imgSrc="/assets/images/home/screenshots/blog">
-				</FeatureCard>
-				<FeatureCard
-					href="/blog/posts/remote-work-mental-health"
-					title="Blog Post"
-          imgSrc="/assets/images/home/screenshots/blog-post"
-				>
-				</FeatureCard>
-				<FeatureCard
-					href="/company/legal"
-					imgSrc="/assets/images/home/screenshots/legal"
-					title="Legal Page"
-				>
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
+      <div slot="btns-container">
+        <Button href="/company/contact">Get Started Today</Button>
+      </div>
 
-	<Container>
-		<section class="feature-card__section">
-			<h2>Theme Pages</h2>
-			<p>Learn more about how to set up and use the Odyssey Theme.</p>
-			<div class="feature-card__grid">
-				<FeatureCard
-					href="/theme/get-started"
-					imgSrc="/assets/images/home/screenshots/get-started"
-					title="Get Started"
-				>
-				</FeatureCard>
-				<FeatureCard
-					href="/theme/style-guide"
-					imgSrc="/assets/images/home/screenshots/style-guide"
-					title="Style Guide"
-				>
-				</FeatureCard>
-			</div>
-		</section>
-	</Container>
+      <picture slot="image-container">
+        <!-- Replace the src with your own hero image when ready -->
+        <img
+          src="/assets/images/landing-1/landing-hero-1.jpg"
+          alt="Tutor and student practicing French conversation online"
+          loading="eager"
+          id="home-hero-image"
+        />
+      </picture>
+    </TextAndImageHero>
+
+    <!-- OUTCOMES -->
+    <section class="card">
+      <h2>What You’ll Achieve</h2>
+      <ul class="checks">
+        <li><strong>Conversational confidence</strong> — participate naturally in any context</li>
+        <li><strong>Native-level listening</strong> — handle pace, idioms, and accents</li>
+        <li><strong>Useful vocabulary</strong> — for everyday life and professional settings</li>
+        <li><strong>Exam readiness</strong> — DELF/DALF/TEF interviews & oral assessments</li>
+      </ul>
+    </section>
+
+    <!-- APPROACH -->
+    <!-- <section class="card"> -->
+      <h2>Our Approach</h2>
+      <p>
+       Fluency comes from speaking, not just studying. Each personalized program blends guided conversation practice with proper greeting protocols, formal oral French etiquette, descriptive speaking exercises, and intensive listening drills. We incorporate cultural context cues and immersive role-play scenarios so you naturally internalize language patterns and develop authentic, confident speaking abilities.
+      </p>
+    <!-- </section> -->
+
+    <!-- 3-STEP PROCESS -->
+    <section class="process">
+      <div class="step">
+        <h3>1) Get Started</h3>
+        <p>Contact us to discuss your goals and receive pricing for individual sessions or small group classes.</p>
+      </div>
+      <div class="step">
+        <h3>2) Trial Lesson</h3>
+        <p>A free 45–60 minute session to experience our method and get feedback.</p>
+      </div>
+      <div class="step">
+        <h3>3) Personalized Program</h3>
+        <p>Weekly lessons, progress tracking, and resources between sessions.</p>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="closing">
+      <!-- <p>
+        Lessons available online and in Victoria, BC. Bilingual instruction (FR/EN).
+      </p> -->
+      <Button href="/company/contact">Get Started Today</Button>
+    </section>
+  </Container>
 </Layout>
 
 <style>
-	.feature-card__section {
-		margin: var(--section-margin) auto;
-	}
-	.feature-card__grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--theme-grid-gap);
-	}
-	@media (max-width: 768px) {
-		.feature-card__grid {
-			grid-template-columns: 1fr;
-		}
-	}
+  .lead {
+    max-width: 780px;
+    line-height: 1.6;
+    margin-top: .5rem;
+  }
+
+  .card {
+    background: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+    padding: 1.5rem;
+    border-radius: var(--theme-shape-radius);
+    margin: calc(var(--section-margin) * 0.75) auto;
+  }
+  .checks { list-style: none; padding: 0; margin: .5rem 0 0; }
+  .checks li { position: relative; padding-left: 1.6rem; margin: .4rem 0; }
+  .checks li::before {
+    content: '✓';
+    position: absolute; left: 0; top: 0; transform: translateY(2px);
+  }
+
+  .process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--theme-grid-gap);
+    margin: calc(var(--section-margin) * 0.75) auto;
+  }
+  .step {
+    background: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+    border-radius: var(--theme-shape-radius);
+    padding: 1.25rem;
+  }
+  .step h3 { margin: 0 0 .4rem; }
+
+  .closing {
+    text-align: center;
+    margin: var(--section-margin) auto;
+  }
+
+  @media (max-width: 900px) {
+    .process { grid-template-columns: 1fr; }
+  }
 </style>

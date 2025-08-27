@@ -17,11 +17,17 @@ const { seo } = Astro.props as Props;
 ---
 
 <Layout seo={seo}>
+	  <script is:inline>
+    // (optional) clear any saved choice so "sand" always wins
+    localStorage.removeItem('odyssey-theme');
+    document.documentElement.setAttribute('data-theme', 'earth');
+  </script>
+  
 	<Header rightMenu navData={nav} slot="header">
 		<span slot="logo">
 			<Logo />
 		</span>
-		<Button slot="action-item" href="/theme/get-started">Get Started</Button>
+		<Button slot="action-item" href="/company/contact">Get Started</Button>
 	</Header>
 	<div id="page">
 		<slot />
